@@ -79,7 +79,7 @@ public void write_in_file(String username, String email)
         try
         {   
             FileWriter myWriter = new FileWriter("data.txt", true);
-            myWriter.write(username + " " + email + "\n");         
+            myWriter.write(username + " " + email + " " + nachalo.suma + "\n");         
             myWriter.close();
         }
             
@@ -102,6 +102,7 @@ public void write_in_file(String username, String email)
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         labelNames = new javax.swing.JLabel();
         labelUsername = new javax.swing.JLabel();
@@ -111,7 +112,6 @@ public void write_in_file(String username, String email)
         txtNames = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        btnConfirm = new javax.swing.JButton();
         txtPass = new javax.swing.JPasswordField();
         txtPass2 = new javax.swing.JPasswordField();
         labelProfilna = new javax.swing.JLabel();
@@ -141,6 +141,13 @@ public void write_in_file(String username, String email)
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
+            }
+        });
+
+        btnConfirm.setText("Потвърди!");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
             }
         });
 
@@ -176,13 +183,6 @@ public void write_in_file(String username, String email)
         txtEmail.setBackground(new java.awt.Color(180, 180, 180));
         txtEmail.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnConfirm.setText("Потвърди!");
-        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmActionPerformed(evt);
-            }
-        });
-
         txtPass.setBackground(new java.awt.Color(180, 180, 180));
         txtPass.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtPass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -211,21 +211,17 @@ public void write_in_file(String username, String email)
                     .addComponent(labelPass2))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                     .addComponent(txtNames)
                     .addComponent(txtUsername)
                     .addComponent(txtPass)
                     .addComponent(txtPass2))
                 .addGap(19, 19, 19))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(181, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNames))
@@ -244,10 +240,7 @@ public void write_in_file(String username, String email)
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPass2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(labelPass2)))
         );
 
         labelProfilna.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -312,15 +305,19 @@ public void write_in_file(String username, String email)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
+                        .addGap(112, 112, 112)
                         .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(151, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(305, 305, 305)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,10 +327,12 @@ public void write_in_file(String username, String email)
                     .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(276, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
         );
@@ -393,16 +392,26 @@ public void write_in_file(String username, String email)
         }
         
         if(check && check_from_file(txtUsername.getText(), txtEmail.getText()))
+        {
             write_in_file(txtUsername.getText(), txtEmail.getText());
-        else  
+            errorPass2.setText(" ");
+            errorPass.setText(" ");
+            errorEmail.setText(" ");
+            errorUsername.setText(" ");
+            errorNames.setText(" ");
+            JOptionPane.showMessageDialog(null, "Успешно създаден профил!!", "Е браво!", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(!(check_from_file(txtUsername.getText(), txtEmail.getText())))
         {
         JOptionPane.showMessageDialog(null, "Потребителското име или имейлът вече съществуват!", "Грешка", JOptionPane.WARNING_MESSAGE);
+        
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     public boolean check_from_file(String username, String email)
     {
       try {
+          
       File myObj = new File("data.txt");
       Scanner myReader = new Scanner(myObj);
       while (myReader.hasNextLine()) 
@@ -410,7 +419,7 @@ public void write_in_file(String username, String email)
         String data = myReader.nextLine();        
 
         String[] splited = data.split(" ");
-        if(splited[0].equals(username) || splited[1].equals(email))
+        if(splited[0].equals(username) || splited[2].equals(email))
         {
             //System.out.println("ako");
             return false;
@@ -421,8 +430,11 @@ public void write_in_file(String username, String email)
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
+    } catch(ArrayIndexOutOfBoundsException f){
+    JOptionPane.showMessageDialog(null, "Въведете валидни данни!", "ГРЕШКА!!!", JOptionPane.WARNING_MESSAGE);
     }
       return true;
+      
     }
     
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
@@ -437,7 +449,7 @@ public void write_in_file(String username, String email)
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.dispose();
-        new nachalo().setVisible(true);
+        new Profil().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

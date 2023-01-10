@@ -314,6 +314,7 @@ public class SlotMachine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+     
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_down.png")));
         try{
             System.out.println(1/obj.getIzbor());
@@ -322,7 +323,7 @@ public class SlotMachine extends javax.swing.JFrame {
         do{
        String zalogString =  JOptionPane.showInputDialog(null, "Заложете сума!");
       zalog = Double.parseDouble(zalogString);
-      if(zalog>=sumichka) JOptionPane.showMessageDialog(null, "Нямате толкова пари!", "", JOptionPane.WARNING_MESSAGE);
+      if(zalog>sumichka || zalog<0) JOptionPane.showMessageDialog(null, "Невалидна сума!", "", JOptionPane.WARNING_MESSAGE);
       else break;
       }while(1>0);
       
@@ -385,13 +386,17 @@ public class SlotMachine extends javax.swing.JFrame {
         //System.out.println("suma:"+sumichka);
          
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_up.png")));
+        if(sumichka==0) JOptionPane.showMessageDialog(null, "ХА, капут, ти загуби!", "Топ 1 малоумници", JOptionPane.WARNING_MESSAGE);
         } catch(NumberFormatException e){
         JOptionPane.showMessageDialog(null, "Заложете сума!", "", JOptionPane.WARNING_MESSAGE);
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_up.png")));
         } catch(ArithmeticException f){
         JOptionPane.showMessageDialog(null, "Изберете картинка!", "", JOptionPane.WARNING_MESSAGE);
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_up.png")));
+        } catch(NullPointerException h){
+        JOptionPane.showMessageDialog(null, "Не затваряй бе джендър(пол)!", "Топ 3 малоумници", JOptionPane.WARNING_MESSAGE);
         }
+        
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

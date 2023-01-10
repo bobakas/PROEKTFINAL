@@ -102,8 +102,6 @@ static int den = 1;
         jLabel2 = new javax.swing.JLabel();
         suma = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        zalSuma = new javax.swing.JTextPane();
         buttOtbor1 = new javax.swing.JRadioButton();
         buttOtbor2 = new javax.swing.JRadioButton();
         buttDraw = new javax.swing.JRadioButton();
@@ -111,6 +109,7 @@ static int den = 1;
         koefX = new javax.swing.JLabel();
         koef2 = new javax.swing.JLabel();
         Pechelish = new javax.swing.JLabel();
+        zalSuma = new javax.swing.JTextField();
         nextDay = new javax.swing.JButton();
         dni = new javax.swing.JLabel();
 
@@ -168,9 +167,6 @@ static int den = 1;
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setText("Заложена сума:");
 
-        jScrollPane1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jScrollPane1.setViewportView(zalSuma);
-
         buttonGroup1.add(buttOtbor1);
         buttOtbor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,6 +204,8 @@ static int den = 1;
         Pechelish.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Pechelish.setText(" ");
 
+        zalSuma.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -222,7 +220,7 @@ static int den = 1;
                         .addGap(74, 74, 74)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(zalSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(381, 381, 381)
                         .addComponent(buttDraw)))
@@ -273,16 +271,12 @@ static int den = 1;
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(koefX, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(koef2)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(suma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(suma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(zalSuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Pechelish, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -352,11 +346,11 @@ static int den = 1;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 603, Short.MAX_VALUE)
         );
 
         pack();
@@ -378,8 +372,8 @@ static int den = 1;
                        balans = Double.parseDouble(nachalo.suma);
            zalozheno = Integer.parseInt(zalSuma.getText());
            
-           if(balans<zalozheno){
- JOptionPane.showMessageDialog(null, "Нямате толкова пари", "Беден си", JOptionPane.WARNING_MESSAGE);
+           if(balans<zalozheno || zalozheno<=0){
+ JOptionPane.showMessageDialog(null, "Въведи валидна сума!", "Беден си", JOptionPane.WARNING_MESSAGE);
             System.out.println(1/0);
            }
          
@@ -528,7 +522,6 @@ static int den = 1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel koef1;
     private javax.swing.JLabel koef2;
     private javax.swing.JLabel koefX;
@@ -538,6 +531,6 @@ static int den = 1;
     private javax.swing.JLabel rezultat;
     private javax.swing.JButton strButt;
     private javax.swing.JLabel suma;
-    private javax.swing.JTextPane zalSuma;
+    private javax.swing.JTextField zalSuma;
     // End of variables declaration//GEN-END:variables
 }
